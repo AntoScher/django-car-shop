@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ car.name }} - Магазин машин{% endblock %}
+
+{% block content %}
+    <div class="car-detail">
+        {% if car.image %}
+            <img src="{{ car.image.url }}" alt="{{ car.name }}">
+        {% else %}
+            <img src="{% static 'img/car_placeholder.png' %}" alt="Без изображения">
+        {% endif %}
+        <h2>{{ car.name }}</h2>
+        <p>{{ car.description }}</p>
+        <p class="price">{{ car.price }} руб.</p>
+        <a href="{% url 'add_to_cart' car.id %}" class="btn">В корзину</a>
+        <a href="{% url 'home' %}" class="btn">Назад</a>
+    </div>
+{% endblock %}

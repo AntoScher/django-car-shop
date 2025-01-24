@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Оформление заказа - Магазин машин{% endblock %}
+
+{% block content %}
+    <h2>Оформление заказа</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>Итого к оплате: {{ total_price }} руб.</p>
+        <button type="submit" class="btn">Оплатить</button>
+    </form>
+{% endblock %}
